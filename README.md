@@ -1,4 +1,3 @@
-# meuAppFlutter
 import 'dart:io';
 
 void main (){
