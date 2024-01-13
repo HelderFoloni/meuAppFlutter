@@ -1,0 +1,20 @@
+import 'dart:convert';
+import 'dart:io';
+
+void main(){
+
+print('Digite o valor dos lados MENORES do retângulo: ');
+var dadoEntrada = stdin.readLineSync(encoding: utf8);
+double numero1 = double.parse(dadoEntrada ?? "0");
+
+print('Digite o valor dos lados MAIORES do retângulo: ');
+dadoEntrada = stdin.readLineSync(encoding: utf8);
+double numero2 = double.parse(dadoEntrada ?? "0");
+
+print(valorArea(numero1, numero2));
+} 
+
+double valorArea(ladoMenor, ladoMaior){
+   double area = ladoMenor * ladoMaior;
+   return area;
+}
