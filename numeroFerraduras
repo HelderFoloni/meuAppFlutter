@@ -1,0 +1,32 @@
+//Exercise to calculate the number of horseshoes to be purchased in a stud farm
+
+import 'dart:convert';
+import 'dart:io';
+
+void main(){
+    print(calculoTotal(leituraDados()));
+}
+
+int leituraDados(){   
+      int i = 1;
+      int cavalos = 0;
+      print('Algoritmo para o cálculo do total de ferraduras de cavalos comprados por haras');
+      print('Digite o numero de cavalos comprados: ');
+
+    while (i != 0) {
+      i = 0;
+        var numero = stdin.readLineSync(encoding: utf8);
+        try{
+            cavalos = int.parse(numero ?? '0');
+          }catch(e){
+            print("Digite apenas números inteiros: ");
+            i = 1;
+          }
+    } 
+    print("O numero de ferraduras a se comprar é: ");
+    return cavalos;
+}
+int calculoTotal(cavalos){
+    int ferraduras = cavalos * 4;
+    return ferraduras;
+}
