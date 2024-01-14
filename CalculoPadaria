@@ -1,0 +1,59 @@
+/* Exercício Instituto Federal Rio Grande do Norte
+
+A padaria Hotpão vende uma certa quantidade de pães franceses e uma quantidade de broas a
+cada dia. Cada pãozinho custa R$ 0,12 e a broa custa R$ 1,50. Ao final do dia, o dono quer saber
+quanto arrecadou com a venda dos pães e broas (juntos), e quanto deve guardar numa conta de
+poupança (10% do total arrecadado). Você foi contratado para fazer os cálculos para o dono. Com
+base nestes fatos, faça um algoritmo para ler as quantidades de pães e de broas, e depois calcular
+os dados solicitados.
+*/
+
+import 'dart:convert';
+import 'dart:io';
+
+void main(){
+  int? paes, broas;
+  print('Digite o numero de PAES FRANCESES vendidos no dia: ');
+  paes = leituraDados();
+  print('Digite o numero de BROAS vendidos no dia: ');
+  broas = leituraDados();
+
+  double total = calculoLucro(paes, broas);  
+  print("O valor do lucro bruto é: ");
+    print(total);
+
+  double totalPoupanca = calculoPoupanca(total);
+  print("O valor do lucro menos a poupança é: ");
+  String poupanca = (totalPoupanca).toStringAsFixed(2);
+  print (poupanca);
+}
+
+double calculoPoupanca(double totalLocal) {
+  double totalLiquido = totalLocal - totalLocal * 1/10;
+  return totalLiquido;
+}
+
+double calculoLucro(int pao, int broa) {
+  final double valorPao = 0.12;
+  final double valorBroa = 1.5;
+  double total = valorPao * pao + valorBroa * broa;
+  return total;
+}
+
+int leituraDados(){
+  var valor;
+  int produto = -1;
+  do{
+    valor = stdin.readLineSync(encoding: utf8);
+    try{
+      produto = int.parse(valor);
+   
+  }catch(e){
+    print("Digite apenas números inteiros: ");
+  }
+  if (produto < 0){
+    print("Digite apenas números maiores ou iguais a ZERO: ");
+  }
+  }while(produto < 0);
+  return produto;
+}
